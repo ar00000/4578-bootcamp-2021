@@ -1,8 +1,8 @@
 package com.bootcamp.demo;
 
-public class Circle {
+public class Circle implements Shape{
     public String draw(){
         //logic
-        return "Drawing Circle";
+        return "SpringFramework Circle";
     }
 }

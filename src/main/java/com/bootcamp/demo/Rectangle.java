@@ -1,8 +1,8 @@
 package com.bootcamp.demo;
 
-public class Rectangle {
+public class Rectangle implements Shape {
     public String draw(){
         //logic
-        return "Drawing Rectangle";
+        return "SpringFramework Rectangle";
     }
 }
