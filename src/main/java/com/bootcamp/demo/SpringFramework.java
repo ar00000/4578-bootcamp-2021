@@ -1,16 +1,22 @@
 package com.bootcamp.demo;
-class Drawing {
-	private final Shape shape;
 
-	Drawing(Shape shape){
-		this.shape=shape;
-	}
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class SpringFramework {
+
 	//loosely coupled example
 	public static void main(String[] args) {
-		Drawing drawing = new Drawing(new Rectangle());
-		System.out.println(drawing.shape.draw());
-		drawing = new Drawing(new Circle());
-		System.out.println(drawing.shape.draw());
+		//Drawing drawing = new Drawing(new Rectangle());
+
+		ApplicationContext applicationContext=
+				SpringApplication.run(SpringFramework.class,args);
+
+		Drawing drawing = applicationContext.getBean(Drawing.class);
+		String result=drawing.shape.draw();
+		System.out.println(result);
 	}
 
 }
