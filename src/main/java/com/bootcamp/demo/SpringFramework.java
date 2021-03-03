@@ -1,16 +1,16 @@
 package com.bootcamp.demo;
-public class SpringFramework {
+class Drawing {
 	private final Shape shape;
 
-	SpringFramework(Shape shape){
+	Drawing(Shape shape){
 		this.shape=shape;
 	}
 	//loosely coupled example
 	public static void main(String[] args) {
-		SpringFramework springFramework = new SpringFramework(new Rectangle());
-		System.out.println(springFramework.shape.draw());
-		springFramework = new SpringFramework(new Circle());
-		System.out.println(springFramework.shape.draw());
+		Drawing drawing = new Drawing(new Rectangle());
+		System.out.println(drawing.shape.draw());
+		drawing = new Drawing(new Circle());
+		System.out.println(drawing.shape.draw());
 	}
 
 }
