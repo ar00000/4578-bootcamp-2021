@@ -1,4 +1,4 @@
-package com.bootcamp.RestFulWebServicePart1;
+package com.bootcamp.RestFulWebServicePart1.welcome;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
