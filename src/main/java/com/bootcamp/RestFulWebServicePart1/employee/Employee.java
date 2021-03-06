@@ -1,10 +1,16 @@
 package com.bootcamp.RestFulWebServicePart1.employee;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 public class Employee {
     private Integer id;
+
+    @Size(min = 2)
     private String name;
+
+    @Min(18)
     private Integer age;
 
     public Employee(Integer id, String name, Integer age) {
