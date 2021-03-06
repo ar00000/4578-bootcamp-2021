@@ -9,7 +9,7 @@ import java.util.List;
 public class EmployeeDaoService {
 
     public static List<Employee> employeeList = new ArrayList<>();
-    public static int employeeCounter = 0;
+    public static int employeeCounter = 3;
 
     static {
         employeeList.add(new Employee(1,"John",30));
