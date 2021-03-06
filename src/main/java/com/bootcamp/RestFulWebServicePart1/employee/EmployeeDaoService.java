@@ -3,6 +3,7 @@ package com.bootcamp.RestFulWebServicePart1.employee;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -33,6 +34,18 @@ public class EmployeeDaoService {
         for (Employee employee: employeeList){
             if(id==employee.getId())
                 return employee;
+        }
+        return null;
+    }
+
+    public Employee deleteEmployee(int id){
+        Iterator<Employee> iterator = employeeList.iterator();
+        while (iterator.hasNext()){
+            Employee employee = iterator.next();
+            if(employee.getId()==id){
+                iterator.remove();
+                return employee;
+            }
         }
         return null;
     }

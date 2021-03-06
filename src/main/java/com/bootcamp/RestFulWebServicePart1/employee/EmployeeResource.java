@@ -24,6 +24,13 @@ public class EmployeeResource {
         return employee;
     }
 
+    @DeleteMapping("/employees/{id}")
+    public void deleteOneEmployee(@PathVariable int id){
+        Employee employee = service.deleteEmployee(id);
+        if(employee==null)
+            throw new EmployeeNotFoundException("id-"+id);
+    }
+
     @PostMapping("/employees")
     public void createEmployee(@RequestBody Employee employee){
         Employee savedEmployee = service.addEmployee(employee);
