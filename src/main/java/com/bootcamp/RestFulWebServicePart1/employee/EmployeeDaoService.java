@@ -49,4 +49,16 @@ public class EmployeeDaoService {
         }
         return null;
     }
+
+    public Employee updateEmployee(int id,Employee employee){
+        Iterator<Employee> iterator = employeeList.iterator();
+        while (iterator.hasNext()){
+            Employee emp = iterator.next();
+            if(employee.getId()==id){
+                employeeList.set(employeeList.indexOf(emp),employee);
+                return emp;
+            }
+        }
+        return null;
+    }
 }

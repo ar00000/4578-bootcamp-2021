@@ -31,6 +31,13 @@ public class EmployeeResource {
             throw new EmployeeNotFoundException("id-"+id);
     }
 
+    @PutMapping("/employees/{id}")
+    public void updateOneEmployee(@PathVariable int id,@RequestBody Employee employee){
+        Employee emp = service.updateEmployee(id,employee);
+        if(emp==null)
+            throw new EmployeeNotFoundException("id-"+id);
+    }
+
     @PostMapping("/employees")
     public void createEmployee(@RequestBody Employee employee){
         Employee savedEmployee = service.addEmployee(employee);
