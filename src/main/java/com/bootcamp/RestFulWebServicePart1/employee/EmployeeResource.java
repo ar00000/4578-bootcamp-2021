@@ -18,7 +18,10 @@ public class EmployeeResource {
 
     @GetMapping("/employees/{id}")
     public Employee getOneEmployee(@PathVariable int id){
-        return service.findEmployee(id);
+        Employee employee = service.findEmployee(id);
+        if(employee==null)
+            throw new EmployeeNotFoundException("id-"+id);
+        return employee;
     }
 
     @PostMapping("/employees")
