@@ -1,13 +1,13 @@
 package com.bootcamp.RestFulWebServicePart2.user;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
 
 @ApiModel(description = "All Details about users: Id, Name & Birthdate")
+@JsonFilter("passwordFilter")
 public class User {
     @ApiModelProperty(notes = "Users unique id")
     private Integer id;
@@ -15,7 +15,7 @@ public class User {
     private String name;
     @ApiModelProperty(notes = "Should be date")
     private Date birthDate;
-    @JsonIgnore
+    //@JsonIgnore
     @ApiModelProperty(notes = "Password should not be visible in response")
     private String password;
 

@@ -1,5 +1,8 @@
 package com.bootcamp.RestFulWebServicePart2.user;
 
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +16,23 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/user")
-    public User createUser(@RequestBody User user){
-        return userService.addUser(user);
+    public MappingJacksonValue createUser(@RequestBody User user){
+        User user1 = userService.addUser(user);
+        MappingJacksonValue mapping = new MappingJacksonValue(user1);
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id","name","birthDate");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("passwordFilter",filter);
+        mapping.setFilters(filters);
+        return mapping;
     }
 
     @GetMapping("/users")
-    public List<User> retrieveAllUser(){
+    public MappingJacksonValue retrieveAllUser(){
         List<User> userList = userService.findAll();
-        return userList;
+        MappingJacksonValue mapping = new MappingJacksonValue(userList);
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id","name","birthDate");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("passwordFilter",filter);
+        mapping.setFilters(filters);
+        return mapping;
     }
 
     @DeleteMapping("/users/{id}")
