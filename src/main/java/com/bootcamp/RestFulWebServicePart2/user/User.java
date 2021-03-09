@@ -1,10 +1,17 @@
 package com.bootcamp.RestFulWebServicePart2.user;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel(description = "All Details about users: Id, Name & Birthdate")
 public class User {
+    @ApiModelProperty(notes = "Users unique id")
     private Integer id;
+    @ApiModelProperty(notes = "Should be string")
     private String name;
+    @ApiModelProperty(notes = "Should be date")
     private Date birtDate;
 
     protected User(){

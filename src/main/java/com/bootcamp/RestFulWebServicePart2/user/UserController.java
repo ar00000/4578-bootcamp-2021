@@ -20,4 +20,11 @@ public class UserController {
     public List<User> retrieveAllUser(){
         return userService.findAll();
     }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteOneUser(@PathVariable int id){
+        User user = userService.deleteUser(id);
+        if(user==null)
+            throw new UserNotFoundException("id-"+id);
+    }
 }
