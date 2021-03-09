@@ -1,5 +1,7 @@
 package com.bootcamp.RestFulWebServicePart2.user;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -12,15 +14,19 @@ public class User {
     @ApiModelProperty(notes = "Should be string")
     private String name;
     @ApiModelProperty(notes = "Should be date")
-    private Date birtDate;
+    private Date birthDate;
+    @JsonIgnore
+    @ApiModelProperty(notes = "Password should not be visible in response")
+    private String password;
 
     protected User(){
-
     }
-    public User(Integer id, String name, Date birtDate) {
+
+    public User(Integer id, String name, Date birthDate, String password) {
         this.id = id;
         this.name = name;
-        this.birtDate = birtDate;
+        this.birthDate = birthDate;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -31,8 +37,8 @@ public class User {
         return name;
     }
 
-    public Date getBirtDate() {
-        return birtDate;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
     public void setId(Integer id) {
@@ -43,7 +49,15 @@ public class User {
         this.name = name;
     }
 
-    public void setBirtDate(Date birtDate) {
-        this.birtDate = birtDate;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

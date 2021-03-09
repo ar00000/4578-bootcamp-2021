@@ -1,6 +1,7 @@
 package com.bootcamp.RestFulWebServicePart2.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> retrieveAllUser(){
-        return userService.findAll();
+        List<User> userList = userService.findAll();
+        return userList;
     }
 
     @DeleteMapping("/users/{id}")

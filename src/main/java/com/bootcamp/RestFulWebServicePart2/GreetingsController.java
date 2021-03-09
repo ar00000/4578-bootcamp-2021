@@ -14,8 +14,14 @@ public class GreetingsController {
     private MessageSource messageSource;
 
     @GetMapping(value = "/greetings")
-    public String greetingsInternationalized(@RequestParam String username){
+    public String greetingsWithUsernameInternationalized(@RequestParam String username){
         return messageSource.getMessage("hello.message",
                 null, LocaleContextHolder.getLocale()) + " " + username;
     }
+
+    /*@GetMapping(value = "/goodmorning")
+    public String greetingsInternationalized(){
+        return messageSource.getMessage("greeting.message",
+                null, LocaleContextHolder.getLocale());
+    }*/
 }
