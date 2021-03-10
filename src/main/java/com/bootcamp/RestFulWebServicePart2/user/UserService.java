@@ -41,5 +41,14 @@ public class UserService {
         }
         return null;
     }
+
+    public User findUser(int id){
+        for(User user: users){
+            if(user.getId()==id){
+                return user;
+            }
+        }
+        return null;
+    }
 }
 

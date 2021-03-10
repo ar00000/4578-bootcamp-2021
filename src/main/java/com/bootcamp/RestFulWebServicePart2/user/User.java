@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 
 @ApiModel(description = "All Details about users: Id, Name & Birthdate")
-@JsonFilter("passwordFilter")
+//@JsonFilter("passwordFilter")
 public class User {
     @ApiModelProperty(notes = "Users unique id")
     private Integer id;
