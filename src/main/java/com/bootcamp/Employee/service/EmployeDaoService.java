@@ -48,4 +48,11 @@ public class EmployeDaoService {
             return employee;
         }
     }
+
+    public Employee retrieveEmployee(long id){
+        if(!repository.existsById(id))
+            return null;
+        Employee employee = repository.findById(id).get();
+        return employee;
+    }
 }
