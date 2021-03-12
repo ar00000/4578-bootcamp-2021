@@ -5,6 +5,8 @@ import com.bootcamp.Employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class EmployeDaoService {
     @Autowired
@@ -21,5 +23,19 @@ public class EmployeDaoService {
         employee.setAge(newEmployee.getAge());
         employee.setLocation(newEmployee.getLocation());
         repository.save(employee);
+    }
+
+    public Employee updateEmployee(long id,Employee employee){
+        Optional<Employee> optionalEmployee = repository.findById(id);
+        if(optionalEmployee.isEmpty())
+            return null;
+        else{
+            Employee employee1 = optionalEmployee.get();
+            employee1.setName(employee.getName());
+            employee1.setLocation(employee.getLocation());
+            employee1.setAge(employee.getAge());
+            repository.save(employee1);
+            return employee1;
+        }
     }
 }
