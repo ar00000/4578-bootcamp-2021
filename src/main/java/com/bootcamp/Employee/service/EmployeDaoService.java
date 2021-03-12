@@ -38,4 +38,14 @@ public class EmployeDaoService {
             return employee1;
         }
     }
+
+    public Employee deleteEmployee(long id){
+        if(!repository.existsById(id))
+            return null;
+        else{
+            Employee employee = repository.findById(id).get();
+            repository.deleteById(id);
+            return employee;
+        }
+    }
 }

@@ -20,4 +20,9 @@ public class EmployeeController {
         Employee employee1 = service.updateEmployee(id,employee);
         return employee1;
     }
+
+    @DeleteMapping("/employee/{id}")
+    public Employee deleteEmployeeRequest(@PathVariable long id){
+        return service.deleteEmployee(id);
+    }
 }
