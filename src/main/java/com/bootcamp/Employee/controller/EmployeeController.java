@@ -46,4 +46,9 @@ public class EmployeeController {
     public List<Employee> pagingAndSortingOnEmployeeAgeRequest(@RequestParam int page,@RequestParam int pageSize){
         return service.pagingAndSortingOnEmployeesAge(page,pageSize);
     }
+
+    @GetMapping("/employees/name")
+    public List<Employee> findByNameRequest(@RequestParam String name){
+        return service.findByNameEmployee(name);
+    }
 }

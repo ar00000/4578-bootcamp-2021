@@ -69,4 +69,8 @@ public class EmployeDaoService {
         List<Employee> employeeList=repository.findAll(pageable).toList();
         return employeeList;
     }
+
+    public List<Employee> findByNameEmployee(String name){
+        return repository.findByName(name);
+    }
 }
