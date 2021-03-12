@@ -35,4 +35,8 @@ public class EmployeeController {
         return employee;
     }
 
+    @GetMapping("/employees/count")
+    public String countEmployeeRequest(){
+        return "No. of Employees:"+service.countEmployees();
+    }
 }

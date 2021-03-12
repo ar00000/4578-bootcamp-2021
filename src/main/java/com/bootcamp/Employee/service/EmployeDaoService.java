@@ -55,4 +55,8 @@ public class EmployeDaoService {
         Employee employee = repository.findById(id).get();
         return employee;
     }
+
+    public long countEmployees(){
+        return repository.count();
+    }
 }
