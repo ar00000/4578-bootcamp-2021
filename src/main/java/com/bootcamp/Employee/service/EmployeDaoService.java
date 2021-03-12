@@ -3,8 +3,12 @@ package com.bootcamp.Employee.service;
 import com.bootcamp.Employee.Employee;
 import com.bootcamp.Employee.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -58,5 +62,11 @@ public class EmployeDaoService {
 
     public long countEmployees(){
         return repository.count();
+    }
+
+    public List<Employee> pagingAndSortingOnEmployeesAge(int page,int pageSize){
+        Pageable pageable = PageRequest.of(page,pageSize, Sort.Direction.ASC,"age");
+        List<Employee> employeeList=repository.findAll(pageable).toList();
+        return employeeList;
     }
 }

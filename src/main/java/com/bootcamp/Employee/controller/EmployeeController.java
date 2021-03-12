@@ -6,6 +6,8 @@ import com.bootcamp.Employee.service.EmployeDaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class EmployeeController {
     @Autowired
@@ -38,5 +40,10 @@ public class EmployeeController {
     @GetMapping("/employees/count")
     public String countEmployeeRequest(){
         return "No. of Employees:"+service.countEmployees();
+    }
+
+    @GetMapping("/employees")
+    public List<Employee> pagingAndSortingOnEmployeeAgeRequest(@RequestParam int page,@RequestParam int pageSize){
+        return service.pagingAndSortingOnEmployeesAge(page,pageSize);
     }
 }
