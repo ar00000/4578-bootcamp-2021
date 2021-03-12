@@ -57,4 +57,8 @@ public class EmployeeController {
         return service.findByStartWithAEmployee();
     }
 
+    @GetMapping("/employees/betweenAge")
+    public List<Employee> findByAgeBetweenEmployeeRequest(@RequestParam int startAge,@RequestParam int endAge){
+        return service.findByAgeBetweenEmployee(startAge,endAge);
+    }
 }

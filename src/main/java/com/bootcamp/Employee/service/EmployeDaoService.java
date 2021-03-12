@@ -78,4 +78,7 @@ public class EmployeDaoService {
         return repository.findByNameStartingWith("A");
     }
 
+    public List<Employee> findByAgeBetweenEmployee(int startAge,int endAge){
+        return repository.findByAgeBetween(startAge,endAge);
+    }
 }
