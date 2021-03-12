@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
     List<Employee> findByName(String name);
+    List<Employee> findByNameStartingWith(String regex);
+
 }

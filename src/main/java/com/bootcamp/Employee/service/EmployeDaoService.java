@@ -73,4 +73,9 @@ public class EmployeDaoService {
     public List<Employee> findByNameEmployee(String name){
         return repository.findByName(name);
     }
+
+    public List<Employee> findByStartWithAEmployee(){
+        return repository.findByNameStartingWith("A");
+    }
+
 }

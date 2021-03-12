@@ -51,4 +51,10 @@ public class EmployeeController {
     public List<Employee> findByNameRequest(@RequestParam String name){
         return service.findByNameEmployee(name);
     }
+
+    @GetMapping("/employees/A")
+    public List<Employee> findByNameStartingWithRequest(){
+        return service.findByStartWithAEmployee();
+    }
+
 }
