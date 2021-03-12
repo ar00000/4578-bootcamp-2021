@@ -1,6 +1,13 @@
 package com.bootcamp.Employee;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Employee {
+    @Id
     private Long id;
     private String name;
     private Integer age;
