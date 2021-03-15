@@ -1,12 +1,10 @@
 package com.bootcamp.Payment.entities;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "bankcheck")
+@PrimaryKeyJoinColumn(name = "id")
 public class Check extends Payment{
     @Column(name = "checknumber")
     private String checkNumber;

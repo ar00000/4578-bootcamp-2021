@@ -3,7 +3,7 @@ package com.bootcamp.Payment.entities;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Payment {
     @Id
     private int id;
