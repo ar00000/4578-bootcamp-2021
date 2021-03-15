@@ -1,12 +1,9 @@
 package com.bootcamp.Payment.entities;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue(value = "cr")
+@Table(name = "creditcard")
 public class CreditCard extends Payment{
     @Column(name = "creditnumber")
     private String cardNumber;
