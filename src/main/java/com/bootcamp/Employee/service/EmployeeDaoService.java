@@ -1,7 +1,6 @@
 package com.bootcamp.Employee.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
@@ -17,6 +16,7 @@ public class EmployeeDaoService {
     List<Object[]> findEmployeeService(){
         return repository.findEmployees();
     }
+
 
     //Update salary of all employees by a salary passed as a parameter whose existing salary is less than the average salary.
     @Transactional

@@ -28,8 +28,10 @@ public class EmployeeController {
     public List<Object[]> findSinghEmployees(){
         return service.findSinghEmployeesService();
     }
+
     @DeleteMapping("/employees/age/{age}")
     public void deleteEmployeeAboveAgeRequest(@PathVariable Integer age){
         service.deleteEmployeeAboveAgeService(age);
     }
+
 }
