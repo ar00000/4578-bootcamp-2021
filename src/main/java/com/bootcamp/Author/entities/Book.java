@@ -9,7 +9,8 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToOne(mappedBy = "book")
+    @ManyToOne
+    @JoinColumn(name = "author_id")
     private Author author;
 
     public int getId() {

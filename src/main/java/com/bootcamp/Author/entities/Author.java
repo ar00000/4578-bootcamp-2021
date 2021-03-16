@@ -17,9 +17,8 @@ public class Author {
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
     private Set<Subject> subjects;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    private Set<Book> books;
 
     public int getId() {
         return id;
@@ -53,12 +52,22 @@ public class Author {
         this.subjects = subjects;
     }
 
-    public Book getBook() {
-        return book;
+    public Set<Book> getBooks() {
+        return books;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
+    public void addBook(Book book){
+        if(book!=null){
+            if(books==null){
+                books = new HashSet<>();
+            }
+            book.setAuthor(this);
+            books.add(book);
+        }
     }
 
     public void addSubject(Subject subject){

@@ -44,7 +44,10 @@ public class AuthorApplication {
 
 		Book book = new Book();
 		book.setName("Ek tha Rusty");
-		author.setBook(book);
+		Book book1 = new Book();
+		book1.setName("The Train");
+		author.addBook(book);
+		author.addBook(book1);
 
 		repository.save(author);
 	}
