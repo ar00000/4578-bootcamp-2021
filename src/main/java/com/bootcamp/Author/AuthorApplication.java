@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.HashSet;
+
 @SpringBootApplication
 public class AuthorApplication {
 
@@ -42,12 +44,14 @@ public class AuthorApplication {
 		author.addSubject(subject1);
 		author.addSubject(subject2);
 
+		HashSet<Book> books = new HashSet<>();
 		Book book = new Book();
 		book.setName("Ek tha Rusty");
 		Book book1 = new Book();
 		book1.setName("The Train");
-		author.addBook(book);
-		author.addBook(book1);
+		books.add(book);
+		books.add(book1);
+		author.setBooks(books);
 
 		repository.save(author);
 	}

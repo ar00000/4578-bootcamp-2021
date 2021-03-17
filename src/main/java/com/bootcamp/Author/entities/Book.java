@@ -1,6 +1,7 @@
 package com.bootcamp.Author.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "book")
@@ -9,9 +10,8 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Author author;
+    @ManyToMany(mappedBy = "books")
+    private Set<Author> authors;
 
     public int getId() {
         return id;
@@ -29,11 +29,12 @@ public class Book {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
+
 }

@@ -17,7 +17,10 @@ public class Author {
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
     private Set<Subject> subjects;
 
-    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "authors_books",
+            joinColumns = @JoinColumn(name = "author_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id",referencedColumnName = "id"))
     private Set<Book> books;
 
     public int getId() {
@@ -60,15 +63,6 @@ public class Author {
         this.books = books;
     }
 
-    public void addBook(Book book){
-        if(book!=null){
-            if(books==null){
-                books = new HashSet<>();
-            }
-            book.setAuthor(this);
-            books.add(book);
-        }
-    }
 
     public void addSubject(Subject subject){
         if(subject!=null){
